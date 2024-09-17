@@ -1,0 +1,69 @@
+---
+import HtmlIcon from "../icons/Html.astro";
+import ToolIcon from "../icons/Tool.astro";
+import CssIcon from "../icons/Css.astro";
+import JavascriptIcon from "../icons/Javascript.astro";
+import ReactIcon from "../icons/React.astro";
+import AstroLightIcon from "../icons/AstroLight.astro";
+import AstroDarkIcon from "../icons/AstroDark.astro";
+import SkillBadge from "./SkillBadge.astro";
+import Github from "../icons/Github.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Typescript from "../icons/Typescript.astro";
+import Nodejs from "../icons/Nodejs.astro";
+import Database from "../icons/Database.astro";
+---
+
+<section class="py-12" id="skills">
+  <h2
+    class="text-center text-xl lg:text-2xl font-semibold my-5 flex justify-center gap-2 items-center"
+  >
+    <ToolIcon class="size-5 lg:size-6" />
+    <span>Principales habilidades</span>
+  </h2>
+  <div
+    class="flex flex-wrap gap-4 items-center align-middle py-6 justify-center"
+  >
+    <SkillBadge>
+      <HtmlIcon class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">HTML</span>
+    </SkillBadge>
+    <SkillBadge>
+      <CssIcon class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">CSS</span>
+    </SkillBadge>
+    <SkillBadge>
+      <JavascriptIcon class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">JavaScript</span>
+    </SkillBadge>
+    <SkillBadge>
+      <Typescript class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">TypeScript</span>
+    </SkillBadge>
+    <SkillBadge>
+      <ReactIcon class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">ReactJS</span>
+    </SkillBadge>
+    <SkillBadge>
+      <AstroLightIcon class="hidden dark:block h-6 lg:h-8 w-auto" />
+      <AstroDarkIcon class="dark:hidden h-6 lg:h-8 w-auto" />
+      <span class="text-small font-medium lg:text-xl ml-1">Astro</span>
+    </SkillBadge>
+    <SkillBadge>
+      <Tailwind class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">Tailwind</span>
+    </SkillBadge>
+    <SkillBadge>
+      <Github class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl ml-1">Git</span>
+    </SkillBadge>
+    <SkillBadge>
+      <Nodejs class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">NodeJS</span>
+    </SkillBadge>
+    <SkillBadge>
+      <Database class="size-6 lg:size-8" />
+      <span class="text-small font-medium lg:text-xl">SQL</span>
+    </SkillBadge>
+  </div>
+</section>

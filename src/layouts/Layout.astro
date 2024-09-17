@@ -1,0 +1,62 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
+import "@fontsource-variable/onest";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/prompt.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="../../public/yo.jpg" />
+    <meta property="og:image:alt" content="Avatar" />
+    <!-- ViewTransitions sirve para que las transiciones entre páginas sean animadas -->
+    <ViewTransitions />
+  </head>
+
+  <body
+    class="px-10 max-w-screen-lg
+    bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] text-slate-900
+    dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:text-slate-100"
+  >
+    <Header />
+    <slot />
+    <style is:global>
+      :root {
+        color-scheme: dark light;
+      }
+      html {
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100%;
+        max-width: 1128px;
+        margin: 0 auto;
+        min-height: 100vh;
+      }
+      /* para usuarios con preferencias de animaciones reducidas */
+      @media (prefers-reduced-motion) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </body>
+</html>
