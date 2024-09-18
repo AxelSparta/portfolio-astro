@@ -1,8 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="404 not found" description="">
-  <h1>Esta pagina no existe</h1>
-  <a href="/">Volver al inicio</a>
+  <section class="h-screen py-52">
+    <div>
+      <h1 class="text-3xl font-bold text-center">Página no encontrada</h1>
+      <p class="text-center my-10 text-lg">
+        Volver a la <a href="/" class="text-blue-400 underline"
+          >página principal</a
+        >
+      </p>
+    </div>
+  </section>
+  <Footer />
 </Layout>

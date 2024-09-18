@@ -8,24 +8,26 @@ import SocialPill from "./SocialPill.astro";
 
 <section id="home" class="py-14 lg:py-28 flex flex-col gap-y-4 text-pretty">
   <img
-    class="rounded-full size-16 lg:size-20 object-cover"
+    class="rounded-full size-16 lg:size-20 object-cover animate-blurred-fade-in"
     src="../../public/yo.jpg"
     alt="axelsparta photo"
   />
-  <h1 class="text-xl lg:text-4xl flex gap-x-3 items-center font-semibold">
+  <h1
+    class="text-xl lg:text-4xl flex gap-x-3 items-center font-semibold animate-blurred-fade-in"
+  >
     Hola, soy Axel Sparta <Badge class="bg-blue-500 text-blue-950"
       >Disponible para trabajar</Badge
     >
   </h1>
-  <h2 class="text-lg lg:text-2xl opacity-90">
+  <h2 class="text-lg lg:text-2xl opacity-90 animate-blurred-fade-in">
     Desarrollador web y estudiante de ingeniería en sistemas de Mendoza,
     Argentina 🇦🇷.
   </h2>
-  <p class="text-sm lg:text-base">
+  <p class="text-sm lg:text-base animate-blurred-fade-in">
     Siempre estoy aprendiendo nuevas tecnologías, creando proyectos y
     perfeccionandome tanto en el front-end como en el back-end.
   </p>
-  <nav>
+  <nav class="animate-blurred-fade-in">
     <ul class="flex gap-4 flex-wrap">
       <li>
         <SocialPill href="https://github.com/AxelSparta">
