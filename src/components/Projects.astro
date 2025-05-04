@@ -12,23 +12,23 @@ const PROJECTS = [
     tags: ["ReactJS", "Tailwind", "NodeJS", "MongoDB", "Express"],
   },
   {
-    title: "Portafolio personal",
-    description:
-      "Proyecto realizado para poder presentar y mostrar lo que me apasiona y dedico.",
-    imageSrc: "/portfolio.png",
-    linkPage: "https://axelsparta.netlify.app/",
-    linkGithub: "https://github.com/AxelSparta/portfolio-astro",
-    tags: ["Astro", "Tailwind"],
-  },
-  {
     title: "App de gestión de tareas",
     description:
       "Aplicación web para gestionar las tareas que se realizan en un proyecto.",
     imageSrc: "/notes-app.png",
     linkPage: "https://note-app-seven-lemon.vercel.app/",
-    linkGithub: "https://github.com/AxelSparta/curso-nextjs-fazt/tree/main/03_notes_app",
+    linkGithub:
+      "https://github.com/AxelSparta/curso-nextjs-fazt/tree/main/03_notes_app",
     tags: ["Next.js", "Tailwind", "Shadcn", "Typescript", "Zod"],
-  }
+  },
+  {
+    title: "Seguimiento de compras de USD",
+    description: "Aplicación web para gestionar las compras de USD.",
+    imageSrc: "/usd-tracker.png",
+    linkPage: "https://usd-tracker.vercel.app/",
+    linkGithub: "https://github.com/AxelSparta/usd-tracker",
+    tags: ["Next.js", "Tailwind", "Typescript"],
+  },
 ];
 ---
 
@@ -51,7 +51,7 @@ const PROJECTS = [
             webLink={linkPage}
             githubLink={linkGithub}
           />
-        )
+        ),
       )
     }
   </div>
