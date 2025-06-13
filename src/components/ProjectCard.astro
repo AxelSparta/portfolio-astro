@@ -15,7 +15,7 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
 ---
 
 <article
-  class="max-w-sm bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700"
+  class="max-w-sm bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform"
 >
   <a href={webLink} target="_blanks" rel="noopener noreferrer">
     <img class="rounded-t-lg bg-cover" src={imageSrc} alt="" />
@@ -25,11 +25,11 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
       {tags.map((tag) => <Badge class="border rounded">{tag}</Badge>)}
     </div>
     <a href={webLink} target="_blank" rel="noopener noreferrer">
-      <h5
-        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      <h3
+        class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
         {title}
-      </h5>
+      </h3>
     </a>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
       {description}
