@@ -17,7 +17,7 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
 <article
   class="max-w-sm bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform"
 >
-  <a href={webLink} target="_blanks" rel="noopener noreferrer">
+  <a href={webLink} target="_blanks" rel="noopener noreferrer" aria-label={`Ver proyecto ${title}`}>
     <img class="rounded-t-lg bg-cover" src={imageSrc} alt="" />
   </a>
   <div class="p-5 flex flex-col h-max justify-between min-h-72">
