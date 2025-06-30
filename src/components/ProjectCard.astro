@@ -15,16 +15,21 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
 ---
 
 <article
-  class="max-w-sm bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform"
+  class="bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform"
 >
-  <a href={webLink} target="_blanks" rel="noopener noreferrer" aria-label={`Ver proyecto ${title}`}>
-    <img class="rounded-t-lg bg-cover" src={imageSrc} alt="" />
+  <a
+    href={webLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`Ver página ${title}`}
+  >
+    <img class="rounded-t-lg bg-cover" src={imageSrc} alt={`Imagen de ${title}`} />
   </a>
   <div class="p-5 flex flex-col h-max justify-between min-h-72">
     <div class="flex flex-wrap gap-2 mb-2">
       {tags.map((tag) => <Badge class="border rounded">{tag}</Badge>)}
     </div>
-    <a href={webLink} target="_blank" rel="noopener noreferrer">
+    <a href={webLink} target="_blank" rel="noopener noreferrer" aria-label={`Ver página ${title}`}>
       <h3
         class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
@@ -39,6 +44,7 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
         href={webLink}
         rel="noopener noreferrer"
         target="_blank"
+        aria-label={`Ver página ${title}`}
         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Ver página
@@ -61,6 +67,7 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
         href={githubLink}
         rel="noopener noreferrer"
         target="_blank"
+        aria-label={`Ver código ${title}`}
         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center border border-transparent rounded-lg hover:border-gray-300"
       >
         Ver código

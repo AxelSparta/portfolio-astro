@@ -63,4 +63,10 @@ import MoonIcon from "../icons/Moon.astro";
   document
     .getElementById("theme-toggle-btn")
     .addEventListener("click", handleToggleClick);
+
+  document.addEventListener('astro:page-load', () => {
+    document
+    .getElementById("theme-toggle-btn")
+    .addEventListener("click", handleToggleClick);
+  })
 </script>
