@@ -1,6 +1,6 @@
 ---
 import "@fontsource-variable/onest";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -24,10 +24,10 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="../../public/yo.jpg" />
+    <meta property="og:image" content="/yo.jpg" />
     <meta property="og:image:alt" content="Avatar" />
-    <!-- ViewTransitions sirve para que las transiciones entre páginas sean animadas -->
-    <ViewTransitions />
+    <!-- ClientRouter sirve para que las transiciones entre páginas sean animadas -->
+    <ClientRouter />
   </head>
 
   <body class="text-slate-900 dark:text-slate-100">
