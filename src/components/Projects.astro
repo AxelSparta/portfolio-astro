@@ -13,7 +13,8 @@ const PROJECTS = [
   },
   {
     title: "Blog personal",
-    description: "Blog personal donde puedo compartir mis proyectos, conocimientos y experiencias.",
+    description:
+      "Blog personal donde puedo compartir mis proyectos, conocimientos y experiencias.",
     imageSrc: "/personal-blog.png",
     linkPage: "https://axel-sparta-blog.netlify.app/",
     linkGithub: "https://github.com/AxelSparta/personal-blog",
@@ -27,16 +28,6 @@ const PROJECTS = [
     linkPage: "https://axel-blog-dev.netlify.app/",
     linkGithub: "https://github.com/AxelSparta/blog-vite",
     tags: ["ReactJS", "Tailwind", "NodeJS", "MongoDB", "Express"],
-  },
-  {
-    title: "App de gestión de tareas",
-    description:
-      "Aplicación web para gestionar las tareas que se realizan en un proyecto.",
-    imageSrc: "/notes-app.png",
-    linkPage: "https://note-app-seven-lemon.vercel.app/",
-    linkGithub:
-      "https://github.com/AxelSparta/curso-nextjs-fazt/tree/main/03_notes_app",
-    tags: ["Next.js", "Tailwind", "Shadcn", "Typescript", "Zod"],
   },
   {
     title: "Seguimiento de compras de USD",
@@ -56,7 +47,9 @@ const PROJECTS = [
     <CodeIcon class="size-5 lg:size-6" />
     <span>Proyectos</span>
   </h2>
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center gap-5">
+  <div
+    class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center gap-5"
+  >
     {
       PROJECTS.map(
         ({ title, description, imageSrc, tags, linkPage, linkGithub }) => (
@@ -68,7 +61,7 @@ const PROJECTS = [
             webLink={linkPage}
             githubLink={linkGithub}
           />
-        ),
+        )
       )
     }
   </div>
