@@ -10,21 +10,25 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const currentLang = Astro.currentLocale || "es";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={currentLang} >
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/code.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://axelsparta.netlify.app/" />
+    <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -33,7 +37,7 @@ const { title, description } = Astro.props;
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="axelsparta.netlify.app" />
-    <meta property="twitter:url" content="https://axelsparta.netlify.app/" />
+    <meta property="twitter:url" content={Astro.url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/portfolio-page.png" />
@@ -43,7 +47,7 @@ const { title, description } = Astro.props;
 
   <body class="text-slate-900 dark:text-slate-100">
     <div
-      class="fixed top-0 left-0 right-0 bottom-0 -z-10 w-screen h-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      class="fixed top-0 left-0 right-0 bottom-0 -z-10 w-full h-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
     <div class="px-10 mx-auto max-w-screen-lg min-h-screen flex flex-col">

@@ -1,24 +1,31 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <footer class="rounded-lg border border-gray-300 dark:border-gray-700 m-4">
   <div
     class="w-full mx-auto max-w-screen-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2"
   >
     <span class="text-sm text-gray-500 text-center dark:text-gray-400"
-      >Hecho con Astro y con ❤️.
+      >{t('footer.madeWith')}
     </span>
     <ul
       class="flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 justify-center"
     >
       <li>
-        <a href="/#home" class="hover:underline me-4 md:me-6">Inicio</a>
+        <a href="#home" class="hover:underline me-4 md:me-6">{t('nav.home')}</a>
       </li>
       <li>
-        <a href="/#skills" class="hover:underline me-4 md:me-6">Habilidades</a>
+        <a href="#skills" class="hover:underline me-4 md:me-6">{t('nav.skills')}</a>
       </li>
       <li>
-        <a href="/#projects" class="hover:underline me-4 md:me-6">Proyectos</a>
+        <a href="#projects" class="hover:underline me-4 md:me-6">{t('nav.projects')}</a>
       </li>
       <li>
-        <a href="/#contact" class="hover:underline">Contacto</a>
+        <a href="#contact" class="hover:underline">{t('nav.contact')}</a>
       </li>
     </ul>
   </div>

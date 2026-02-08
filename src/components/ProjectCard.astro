@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Github from "../icons/Github.astro";
 import Badge from "./Badge.astro";
 
@@ -6,12 +7,17 @@ interface Props {
   title: string;
   description: string;
   webLink: string;
-  imageSrc: string;
+  imageSrc: ImageMetadata;
   githubLink: string;
   tags: Array<String>;
 }
 
 const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <article
@@ -21,15 +27,15 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
     href={webLink}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label={`Ver página ${title}`}
+    aria-label={`${t('project.link.web')} ${title}`}
   >
-    <img class="rounded-t-lg bg-cover" src={imageSrc} alt={`Imagen de ${title}`} />
+    <Image class="rounded-t-lg bg-cover" src={imageSrc} alt={`Imagen de ${title}`} />
   </a>
   <div class="p-5 flex flex-col h-max justify-between min-h-72">
     <div class="flex flex-wrap gap-2 mb-2">
       {tags.map((tag) => <Badge class="border rounded">{tag}</Badge>)}
     </div>
-    <a href={webLink} target="_blank" rel="noopener noreferrer" aria-label={`Ver página ${title}`}>
+    <a href={webLink} target="_blank" rel="noopener noreferrer" aria-label={`${t('project.link.web')} ${title}`}>
       <h3
         class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
@@ -44,10 +50,10 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
         href={webLink}
         rel="noopener noreferrer"
         target="_blank"
-        aria-label={`Ver página ${title}`}
-        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        aria-label={`${t('project.link.web')} ${title}`}
+        class="inline-flex items-center px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Ver página
+        {t('project.link.web')}
         <svg
           class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
           aria-hidden="true"
@@ -67,10 +73,10 @@ const { title, description, webLink, imageSrc, githubLink, tags } = Astro.props;
         href={githubLink}
         rel="noopener noreferrer"
         target="_blank"
-        aria-label={`Ver código ${title}`}
-        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center border border-transparent rounded-lg hover:border-gray-300"
+        aria-label={`${t('project.link.github')} ${title}`}
+        class="inline-flex items-center px-3 py-2 text-xs md:text-sm font-medium text-center border rounded-lg border-gray-500 dark:hover:border-gray-600 hover:border-gray-400"
       >
-        Ver código
+        {t('project.link.github')}
         <Github class="size-5 ml-2" />
       </a>
     </div>
