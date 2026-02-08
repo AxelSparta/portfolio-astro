@@ -1,57 +1,26 @@
 ---
 import CodeIcon from "../icons/Code.astro";
 import ProjectCard from "./ProjectCard.astro";
-const PROJECTS = [
-  {
-    title: "Página de blogs",
-    description:
-      "Plataforma de blog full-stack donde los usuarios pueden iniciar sesión o registrarse para crear, editar y eliminar posts.",
-    imageSrc: "/blog-app.png",
-    linkPage: "https://blog-app-sparta.vercel.app/",
-    linkGithub: "https://github.com/AxelSparta/blog-app",
-    tags: ["Nextjs", "Tailwind", "Node.js", "Express", "Turborepo"],
-  },
-  {
-    title: "App de películas",
-    description:
-      "Aplicación web para buscar películas, obtener información y ver sus trailers.",
-    imageSrc: "/movie-app.png",
-    linkPage: "https://moviesparta.netlify.app/",
-    linkGithub: "https://github.com/AxelSparta/movie-app",
-    tags: ["ReactJS", "Tailwind", "React Router", "Typescript"],
-  },
-  {
-    title: "Blog personal",
-    description:
-      "Blog personal donde puedo compartir mis proyectos, conocimientos y experiencias.",
-    imageSrc: "/personal-blog.png",
-    linkPage: "https://axel-sparta-blog.netlify.app/",
-    linkGithub: "https://github.com/AxelSparta/personal-blog",
-    tags: ["Astro", "Tailwind", "Typescript"],
-  },
-  {
-    title: 'Compras de USD Argentina',
-    description: 'Aplicación web para consultar y registrar las compras de dólares en Argentina.',
-    imageSrc: '/usd-tracker.png',
-    linkPage: 'https://usd-tracker.vercel.app',
-    linkGithub: 'https://github.com/AxelSparta/usd-tracker',
-    tags: ['NextJS', 'Tailwind', 'TypeScript', 'Zustand'],
-  }
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { PROJECTS } from '../i18n/data';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentProjects = PROJECTS[lang];
 ---
 
-<section class="py-12" id="projects">
+<section class="py-10" id="projects">
   <h2
     class="text-center text-xl lg:text-2xl font-semibold my-5 flex justify-center gap-2 items-center"
   >
     <CodeIcon class="size-5 lg:size-6" />
-    <span>Proyectos</span>
+    <span>{t('projects.title')}</span>
   </h2>
   <div
-    class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center gap-5"
+    class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] justify-center gap-5"
   >
     {
-      PROJECTS.map(
+      currentProjects.map(
         ({ title, description, imageSrc, tags, linkPage, linkGithub }) => (
           <ProjectCard
             title={title}

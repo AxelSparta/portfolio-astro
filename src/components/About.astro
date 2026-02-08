@@ -1,37 +1,41 @@
 ---
+import { Image } from "astro:assets";
+import yo from "../assets/yo.jpg";
 import Download from "../icons/Download.astro";
 import GithubIcon from "../icons/Github.astro";
 import LinkedInIcon from "../icons/Linkedin.astro";
 import MailIcon from "../icons/Mail.astro";
 import Badge from "./Badge.astro";
 import SocialPill from "./SocialPill.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<section id="home" class="py-14 lg:py-28 flex flex-col gap-y-4 text-pretty">
-  <img
-    class="rounded-full size-16 lg:size-20 object-cover animate-blurred-fade-in mx-auto sm:mx-0"
-    src="/yo.jpg"
+<section id="home" class="py-10 lg:py-28 flex flex-col gap-y-4 text-pretty">
+  <Image
+    class="rounded-full size-32 lg:size-32 object-cover animate-blurred-fade-in mx-auto sm:mx-0"
+    src={yo}
     alt="axelsparta photo"
   />
   <h1
     class="flex-col sm:flex-row text-xl lg:text-4xl flex gap-x-3 items-center font-semibold animate-blurred-fade-in"
   >
-    Hola, soy Axel Sparta <Badge class="bg-blue-300 text-slate-950"
-      >Disponible para trabajar</Badge
+    {t('hero.title')} <Badge class="bg-blue-300 text-slate-950"
+      >{t('hero.badge')}</Badge
     >
   </h1>
   <h2
     class="text-sm sm:text-lg lg:text-2xl opacity-90 animate-blurred-fade-in font-semibold"
   >
-    Desarrollador web y estudiante de ingeniería en sistemas de Mendoza,
-    Argentina 🇦🇷.
+    {t('hero.subtitle')}
   </h2>
   <p class="text-xs sm:text-sm lg:text-base animate-blurred-fade-in">
-    Siempre estoy aprendiendo nuevas tecnologías, creando proyectos y
-    perfeccionandome tanto en el front-end como en el back-end.
+    {t('hero.description')}
   </p>
   <nav class="animate-blurred-fade-in">
-    <ul class="flex gap-4 flex-wrap">
+    <ul class="flex justify-center lg:justify-start items-center gap-4 flex-wrap">
       <li>
         <SocialPill href="https://github.com/AxelSparta">
           <GithubIcon class="size-4 lg:size-6" />
@@ -47,13 +51,13 @@ import SocialPill from "./SocialPill.astro";
       <li>
         <SocialPill href="mailto:axelnicolassparta@gmail.com">
           <MailIcon class="size-4 lg:size-6" />
-          Correo
+          {t('social.email')}
         </SocialPill>
       </li>
       <li>
-        <SocialPill download="Axel-Sparta-CV.pdf" href="/sparta-cv.pdf">
+        <SocialPill download="Axel-Sparta-CV.pdf" href={lang === 'es' ? '/sparta-cv-es.pdf' : '/sparta-cv-en.pdf'}>
           <Download class="size-4 lg:size-6" />
-          CV
+          {t('social.cv')}
         </SocialPill>
       </li>
     </ul>

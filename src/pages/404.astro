@@ -1,14 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const homeUrl = lang === 'es' ? '/' : `/${lang}/`;
 ---
 
-<Layout title="404 not found" description="La página que estás buscando no existe o fue movida. Volvé al inicio para seguir navegando.">
+<Layout title={t('404.title')} description={t('404.description')}>
   <section class="flex-1 py-52">
     <div>
-      <h1 class="text-3xl font-bold text-center">Página no encontrada</h1>
+      <h1 class="text-3xl font-bold text-center">{t('404.heading')}</h1>
       <p class="text-center my-10 text-lg">
-        Volver a la <a href="/" class="text-blue-400 underline"
-          >página principal</a
+        {t('404.text')} <a href={homeUrl} class="text-blue-400 underline"
+          >{t('404.link')}</a
         >
       </p>
     </div>
