@@ -8,7 +8,9 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import { languageList } from '../../i18n/ui';
 
 export async function getStaticPaths() {
-  return Object.keys(languageList).map(lang => ({ params: { lang } }));
+  return Object.keys(languageList)
+    .filter((lang) => lang !== 'es')
+    .map((lang) => ({ params: { lang } }));
 }
 
 const lang = getLangFromUrl(Astro.url);

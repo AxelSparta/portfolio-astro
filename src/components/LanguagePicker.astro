@@ -7,7 +7,7 @@ const lang = getLangFromUrl(Astro.url);
 <ul class="flex gap-x-2">
   {Object.entries(languageList).map(([langPrefix, label]) => {
      const isCurrent = lang === langPrefix;
-     const prefix = langPrefix === 'es' ? '/es' : `/${langPrefix}`;
+     const prefix = langPrefix === 'es' ? '/' : `/${langPrefix}/`;
      return (
     <li>
       <a 
