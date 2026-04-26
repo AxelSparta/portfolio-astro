@@ -9,15 +9,15 @@ const t = useTranslations(lang);
 const currentProjects = PROJECTS[lang];
 ---
 
-<section class="py-10" id="projects">
+<section class="py-12 flex flex-col gap-y-10" id="projects">
   <h2
-    class="text-center text-xl lg:text-2xl font-semibold my-5 flex justify-center gap-2 items-center"
+    class="text-3xl font-semibold flex gap-x-3 items-center text-slate-900 dark:text-white"
   >
-    <CodeIcon class="size-5 lg:size-6" />
-    <span>{t('projects.title')}</span>
+    <CodeIcon class="size-8" />
+    {t('projects.title')}
   </h2>
   <div
-    class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] justify-center gap-5"
+    class="flex flex-col gap-y-16"
   >
     {
       currentProjects.map(
